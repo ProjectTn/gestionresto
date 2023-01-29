@@ -1,0 +1,44 @@
+import java.time.LocalDate;
+import java.util.Scanner;
+public class RestoMain {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Menu gestionnaire=new Menu();
+              Scanner sc = new Scanner(System.in);
+            
+            int choix ;
+            do {
+            	System.out.println("~~~~~~~~~~~~~~~~~~~~BIENVENUE DANS NOTRE RESTO~~~~~~~~~~~~~~~~~~ ");
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ");
+                System.out.println("Veuillez entrer le numéro de l'opération ");
+                System.out.println(" 1:Créer une commande ");
+                System.out.println("2:Ajouter un Plat ");
+                System.out.println("3:Modifier les caracteristques un plat  ");
+                System.out.println("4:Affichier les plats par categorie");
+                System.out.println("5:Affichier details commande ");
+                System.out.println("6:cloturer une commande");
+                System.out.println("7:recette journalliere");
+                System.out.println("8:recette journalliere pendant une periode specifique ");
+                System.out.println("9:Affichier le plat le plus commandé ");
+                System.out.println("10:arreter l'application ");
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ");
+                
+                choix=sc.nextInt();
+                switch(choix) {
+                    case 1:gestionnaire.creer_commande();break;
+                    case 2:gestionnaire.ajout_Plat();break;
+                    case 3:gestionnaire.modifierPlat(); break;
+                    case 4:gestionnaire.affichageListDesPlats();; break;
+                    case 5:gestionnaire.affichageDetailsCmd();; break;
+                    case 6:gestionnaire.clotureCmd();; break;
+                    case 7:{LocalDate d =LocalDate.now();
+                    		gestionnaire.recette_journalière(d);}; break;
+                    case 8:gestionnaire.recette_journalière_Periode(); break;
+                    case 9:gestionnaire.LePlusCommande(); break;
+ 
+                }
+            }while ( choix != 10 );
+    }
+    
+}
